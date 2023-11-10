@@ -1,0 +1,126 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "Kulanuch": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/Kulanuch",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [ "src/styles.css" ,"src/assets/bootstrap/css/bootstrap.4.1.3.min.css" ,"src/assets/styles/shards-dashboards.1.1.0.min.css" ,"src/assets/styles/extras.1.1.0.min.css"],
+            "scripts": ["src/assets/scripts/buttons.js","src/assets/scripts/popper.min.js","src/assets/scripts/jquery-3.3.2.min.js" ,"src/assets/bootstrap/js/bootstrap.4.1.3.min.js" ,"src/assets/scripts/chart.min.js" ,"src/assets/scripts/shard.min.js" , "src/assets/scripts/sharrre.min.js" ,"src/assets/scripts/extras.1.1.0.min.js" , "src/assets/scripts/shards-dashboards.1.1.0.min.js" , "src/assets/scripts/custom.js" ,"src/assets/bootstrap/js/bootstrap-datepicker.js"]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "Kulanuch:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "Kulanuch:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "Kulanuch:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "Kulanuch:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "Kulanuch:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "Kulanuch",
+  "cli": {
+    "analytics": "817891b2-2d82-4286-b8b7-e0acd7328e05"
+  }
+}

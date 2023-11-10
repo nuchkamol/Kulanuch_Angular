@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="no-js h-100" lang="en">
+  <head>
+    <app-header></app-header>
+  </head>
+  <body class="h-100">
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <app-sidebar></app-sidebar>
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+          <div class="main-navbar sticky-top bg-white">
+            <!-- Main Navbar -->
+            <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+              <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                <div class="input-group input-group-seamless ml-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-user"></i> <i class="fa fa-plus"></i>
+                    </div>
+                  </div>
+                  <h1 class="navbar-search form-control m-0" ></h1> </div>
+              </form>
+              <ul class="navbar-nav border-left flex-row ">
+                
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img class="user-avatar rounded-circle mr-2" src="../assets/images/kulanuch.PNG" alt="User Avatar">
+                    <span class="d-none d-md-inline-block">Kulanuch Dome</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small">
+                    <a class="dropdown-item" href="user-profile-lite.html">
+                      <i class="material-icons">&#xE7FD;</i> Profile</a>
+                    <a class="dropdown-item" href="components-blog-posts.html">
+                      <i class="material-icons">vertical_split</i> Blog Posts</a>
+                    <a class="dropdown-item" href="add-new-post.html">
+                      <i class="material-icons">note_add</i> Add New Post</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#">
+                      <i class="material-icons text-danger">&#xE879;</i> Logout </a>
+                  </div>
+                </li>
+              </ul>
+              <nav class="nav">
+                <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+                  <i class="material-icons">&#xE5D2;</i>
+                </a>
+              </nav>
+            </nav>
+          </div>
+          <!-- / .main-navbar -->
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Add new customer</span>
+                <h3 class="page-title">Room Profile</h3>
+              </div>
+            </div>
+            <!-- <div id="test" style="width:50px;height:50px;background-color: brown;"></div> -->
+                <!-- End Page Header -->
+            <!-- Default Light Table -->
+            <div class="row">
+            
+              <div class="col-lg-12">
+                <div class="card card-small mb-4">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">Room Details</h6>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-3">
+                      <div class="row">
+                        <div class="col">
+                            <form #formAddRoom="ngForm" (submit)="onSubmit(formAddRoom.value)">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="txtRoomname">Room Name</label>
+                                <input type="text" class="form-control" placeholder="Room Name" value=""  id="txtRoomName" name="txtRoomName"     [(ngModel)]="txtRoomName"> </div>
+                              <div class="form-group col-md-6">
+                                <label for="txtRoomnumber">Room Number</label>
+                                <input type="text" class="form-control"  placeholder="Room Number" value="" id="txtRoomNumber" name="txtRoomNumber"     [(ngModel)]="txtRoomNumber"> </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-md-3">
+                                <label for="txtDormBranch">Dorm Branch</label>
+                                <input type="text" class="form-control" id="txtDormBranch" placeholder="Dorm branch" value=""  name="txtDormBranch"     [(ngModel)]="txtDormBranch" > </div>
+                                <div class="form-group col-md-3">
+                                <label for="txtDormFloor">Dorm Floor</label>
+                                <input type="text" class="form-control" id="txtDormFloor" placeholder="Dorm floor" value=""  name="txtDormFloor"     [(ngModel)]="txtDormFloor" > </div>
+                                <div class="form-group col-md-3">
+                                <label for="txtDormRoom">Dorm Room</label>
+                                <input type="text" class="form-control" id="txtDormRoom" placeholder="Dorm Room" value=""  name="txtDormRoom"     [(ngModel)]="txtDormRoom" > </div>
+                               
+                                <div class="form-group col-md-3">
+                                    <label for="ddlStatus">status</label>
+                                   
+                                    <select 
+   
+                                    [(ngModel)]="ddlStatus" 
+                                    name="ddlStatus"
+                                    class="select-text form-control">
+                                     <option class="dropdown-item" disabled selected value="undefined" value="0">Select Status</option>
+                                     <option>ว่าง</option>
+                                     <option>ไม่ว่าง</option>
+                                  </select>
+                              
+
+                                    
+                                  </div>
+
+                                  
+                            </div>
+                         
+                            <div class="form-row">
+                              <div class="form-group col-md-12">
+                                <label for="txtDescription">Description</label>
+                                <textarea class="form-control" name="txtDescription" rows="5" name="txtDescription"     [(ngModel)]="txtDescription"></textarea>
+                              </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-accent" >Update Rooms</button>
+                          </form>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- End Default Light Table -->
+          </div>
+         
+        </main>
+      </div>
+    </div>
+    <div id="popup_bg" style="display:none;"></div>
+    <div class="Absolute-Center" id="popup_viu" style="display:none;">
+        
+        <div class="pop_viu_img">
+        <div class="pop_viu_close btn_banner" onclick="popupHide('popup_viu');"></div>
+        	<!--<div class="icon_alert"><img src="images/superwifi/icon_alert.png" width="41" height="41" alt=""/></div>-->
+            <div class="pop_txt">
+            	<div class="pop_txt_title" id="txt_header_error">{{txt_header_error}}</div>
+                <div class="pop_txt_desc" id="txt_message_error"  [innerHTML]="txt_body_error">กรุณาลองอีกครั้งค่ะ</div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+    <script src="scripts/extras.1.1.0.min.js"></script>
+    <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
+    <script src="scripts/app/app-blog-overview.1.1.0.js"></script> -->
+  </body>
+</html>
